@@ -24,7 +24,7 @@ function Post(props) {
                 <button onClick={clickLike} className={`postLinkImg ${isLiked ? "starFill" : "starOutline"}`}></button>
                 <div class = "tooltip">
                   <button onClick={() => copyImgLink(props.image)} className = "postLinkImg shareImageIcon"></button>
-                  <span class="tooltiptext">Link Copied!</span>
+                  <span class="tooltiptext">Copy Link!</span>
                 </div>
             </div>
             

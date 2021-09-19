@@ -1,4 +1,4 @@
-import React, {useEffect, useLayoutEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import Header from "./Header";
 import Blurb from "./Blurb";
 import Post from "./Post";
@@ -8,28 +8,20 @@ import Footer from "./Footer";
 import Masonry from "masonry-layout";
 import imagesLoaded from "imagesloaded";
 
-/*
-Color Scheme: https://www.colorcombos.com/color-schemes/275/ColorCombo275.html
-https://docs.google.com/document/d/1QlC6htA5SXEl3YruAOkJWj2-0W3w-n0UOzGuJ1EcktQ/edit#
-
-TO DO:
-Place Loading
-onClick: link copied only!
-errorPage
-*/
-
 function App() {
 
 const [isLoading, setLoading] = useState(true);
 const [posts, setPosts] = useState(null);
 const [isError, setError] = useState(false);
 
-let start = new Date();
-start.setDate(start.getDate() - 20);
-start = start.toISOString().slice(0, 10);
+function getLast20(){
+  let start = new Date();
+  start.setDate(start.getDate() - 20);
+  start = start.toISOString().slice(0, 10);
+  return start;
+}
 
 function toDate(date){
-  console.log("original: " + date);
   let formattedDate = new Date(date);
   formattedDate = formattedDate.toDateString();
   return formattedDate;
@@ -38,7 +30,7 @@ function toDate(date){
 useEffect(() => {
   async function getNasaContent(){
     let API_KEY = "vxAMHnkcijmbHV6jJcYo03hbQfxbNV4cAceWLWbd";
-    let response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&start_date=${start}`);
+    let response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&start_date=${getLast20()}`);
     let data = await response.json();
     setPosts(data);
   }
@@ -53,6 +45,7 @@ useEffect(() => {
 
 useEffect(() => {
   if(posts){
+    setPosts(posts.reverse());
     setLoading(false);
     imagesLoaded( document.querySelector('.wrapper'), function() {
       console.log('all images are loaded');
