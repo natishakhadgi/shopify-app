@@ -35,6 +35,14 @@
     color:#2B3E42;
     font-size: .75em;
   }
+
+  .content{
+    display: flex;
+    height: 175px; /* fallback if needed */
+    height: calc(100vh - 7em);
+    justify-content: center;
+    align-items: center;
+  }
   
   .wrapper{
     padding: 2em;
@@ -202,7 +210,6 @@
     }
   }
   
-
   /* MEDIA QUERIES*/
   @media (max-width: 1024px) {
     .card{
