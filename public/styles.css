@@ -57,6 +57,11 @@
     gap: 10px;
   }
 
+  .blurb h2{
+    font-family: 'Space Mono', monospace;
+    font-size: 1.4em;
+  }
+
   /* post / Post CSS*/
   .post {
     background-color: white;
@@ -97,6 +102,16 @@
     height: 20px;
     background-size: contain;
   }
+
+  button{
+    border:none;
+    background: none;
+  }
+
+  button:hover{
+    cursor: pointer;
+  }
+
   .starFill{
     background-image: url('./assets/starFill.svg');
   }
@@ -109,6 +124,84 @@
     margin-left: 5px;
     background-image: url('./assets/shareIcon.svg');
   }
+
+  /* 
+  TOOLTIP
+  https://www.w3schools.com/css/css_tooltip.asp
+  */
+
+  .tooltip {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 90px;
+    background-color: #F2583E;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -40px;
+  }
+  
+  .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #F2583E transparent transparent transparent;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+
+  /* LOADING CSS */
+  .lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 8px solid #fff;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #fff transparent transparent transparent;
+  }
+  .lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+  }
+  .lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+  }
+  .lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+  }
+  @keyframes lds-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
 
   /* MEDIA QUERIES*/
   @media (max-width: 1024px) {
@@ -128,5 +221,6 @@
       width: 85%;
     }
   }
+
   
   

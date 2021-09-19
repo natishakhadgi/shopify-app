@@ -1,12 +1,16 @@
 import React, {useState} from "react";
 
-//Display descriptive data for each image (for example: title, date, description, etc.)
 function Post(props) {
   const [isLiked, setIsLiked] = useState(false);
 
   function clickLike(){
     setIsLiked(!isLiked);
   }
+
+  function copyImgLink(url){
+    navigator.clipboard.writeText(url)
+  }
+
   return (
     <div className="card post">
         <img className="postImg" src = {props.image} />
@@ -17,8 +21,11 @@ function Post(props) {
         <div className="postFooter">
             <p>{props.date}</p>
             <div className = "postLinks">
-                <div onClick={clickLike} className={`postLinkImg ${isLiked ? "starFill" : "starOutline"}`}></div>
-                <div className = "postLinkImg shareImageIcon"></div>
+                <button onClick={clickLike} className={`postLinkImg ${isLiked ? "starFill" : "starOutline"}`}></button>
+                <div class = "tooltip">
+                  <button onClick={() => copyImgLink(props.image)} className = "postLinkImg shareImageIcon"></button>
+                  <span class="tooltiptext">Link Copied!</span>
+                </div>
             </div>
             
         </div>
@@ -27,3 +34,4 @@ function Post(props) {
 }
 
 export default Post;
+
