@@ -29,4 +29,4 @@ You can view the project [here](https://spacestagram-natisha.herokuapp.com/).
 
 ### Demo
 
-<img src='http://g.recordit.co/Tddvpb7Wp5.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/JskPkn9ZLC.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
