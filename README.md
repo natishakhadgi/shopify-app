@@ -28,11 +28,5 @@ You can view the project [here](https://spacestagram-natisha.herokuapp.com/).
 - Heroku for hosting.
 
 ### Demo
+
 <img src='http://g.recordit.co/Tddvpb7Wp5.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
